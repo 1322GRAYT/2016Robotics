@@ -1,5 +1,7 @@
 package org.usfirst.frc.team1322.robot.subsystems;
 
+import org.usfirst.frc.team1322.robot.commands.TeleopDriveSystem;
+
 import edu.wpi.first.wpilibj.CANTalon;
 import edu.wpi.first.wpilibj.RobotDrive;
 import edu.wpi.first.wpilibj.command.Subsystem;
@@ -12,7 +14,7 @@ public class DriveSubsystem extends Subsystem {
     private int encoderValue;
     
     
-    DriveSubsystem(){
+    public DriveSubsystem(){
     	EncoderedTalon = new CANTalon(1);
     	DriveSystem = new RobotDrive(EncoderedTalon, new CANTalon(2), new CANTalon(3), new CANTalon(4));
     	
@@ -38,6 +40,11 @@ public class DriveSubsystem extends Subsystem {
 
     public void initDefaultCommand() {
         // Set the default command for a subsystem here.
-        //setDefaultCommand(new MySpecialCommand());
+        setDefaultCommand(new TeleopDriveSystem());
     }
+
+	public void Stop() {
+		ArcadeDrive(0, 0);
+		
+	}
 }
