@@ -6,11 +6,11 @@ import edu.wpi.first.wpilibj.CameraServer;
 import edu.wpi.first.wpilibj.command.Command;
 import edu.wpi.first.wpilibj.command.Scheduler;
 import edu.wpi.first.wpilibj.livewindow.LiveWindow;
+import org.usfirst.frc.team1322.robot.commands.AutonimousMode1;
 import org.usfirst.frc.team1322.robot.subsystems.ArmTilt;
 import org.usfirst.frc.team1322.robot.subsystems.BallIntake;
 import org.usfirst.frc.team1322.robot.subsystems.BallPickup;
 import org.usfirst.frc.team1322.robot.subsystems.DriveSubsystem;
-import org.usfirst.frc.team1322.robot.subsystems.ExampleSubsystem;
 import edu.wpi.first.wpilibj.smartdashboard.SendableChooser;
 import edu.wpi.first.wpilibj.smartdashboard.SmartDashboard;
 
@@ -38,7 +38,7 @@ public class Robot extends IterativeRobot {
     public void robotInit() {
 		oi = new OI();
         chooser = new SendableChooser();
-//        chooser.addDefault("Default Auto", new ExampleCommand());
+        chooser.addDefault("Default Auto", new AutonimousMode1());
 //        chooser.addObject("My Auto", new MyAutoCommand());
         SmartDashboard.putData("Auto mode", chooser);
         CameraServer cams = CameraServer.getInstance();
