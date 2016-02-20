@@ -8,6 +8,7 @@ import edu.wpi.first.wpilibj.livewindow.LiveWindow;
 import org.usfirst.frc.team1322.robot.commands.ExampleCommand;
 import org.usfirst.frc.team1322.robot.subsystems.BallIntake;
 import org.usfirst.frc.team1322.robot.subsystems.BallPickup;
+import org.usfirst.frc.team1322.robot.subsystems.DriveSubsystem;
 import org.usfirst.frc.team1322.robot.subsystems.ExampleSubsystem;
 import edu.wpi.first.wpilibj.smartdashboard.SendableChooser;
 import edu.wpi.first.wpilibj.smartdashboard.SmartDashboard;
@@ -20,8 +21,7 @@ import edu.wpi.first.wpilibj.smartdashboard.SmartDashboard;
  * directory.
  */
 public class Robot extends IterativeRobot {
-
-	public static final ExampleSubsystem exampleSubsystem = new ExampleSubsystem();
+	public final static DriveSubsystem DriveSystem = new DriveSubsystem();
 	public static final BallPickup ballPickup = new BallPickup();
 	public static final BallIntake ballIntake = new BallIntake();
 	public static OI oi;
