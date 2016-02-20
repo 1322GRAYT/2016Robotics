@@ -1,16 +1,11 @@
 package org.usfirst.frc.team1322.robot.subsystems;
 
 import org.usfirst.frc.team1322.robot.commands.ArmTiltTeleop;
-import org.usfirst.frc.team1322.robot.commands.BallPickupTeleop;
-
 import edu.wpi.first.wpilibj.AnalogInput;
 import edu.wpi.first.wpilibj.AnalogPotentiometer;
 import edu.wpi.first.wpilibj.Victor;
 import edu.wpi.first.wpilibj.command.Subsystem;
 
-/**
- *
- */
 public class ArmTilt extends Subsystem {
     Victor armTilt;
     AnalogPotentiometer armPot;
