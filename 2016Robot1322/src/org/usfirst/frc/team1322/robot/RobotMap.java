@@ -6,25 +6,31 @@ package org.usfirst.frc.team1322.robot;
  * floating around.
  */
 public class RobotMap {
-    // For example to map the left and right motors, you could define the
-    // following variables to use with your drivetrain subsystem.
-    // public static int leftMotor = 1;
-    // public static int rightMotor = 2;
-    
-    // If you are using multiple modules, make sure to define both the port
-    // number and the module. For example you with a rangefinder:
-    // public static int rangefinderPort = 1;
-    // public static int rangefinderModule = 1;
-	public static int leftDrives = 1;
-	public static int righDrives = 2;
-	public static int armPivot = 3;
-	public static int climbWinch = 4;
-	public static int loadWinch = 5;
-	public static int ballIntake = 1;
-	public static int ballMove = 1;
-	public static int leftEncoder = 1;
-	public static int rightEncoder = 2;
-	public static int pivotLimit = 3;
-	public static int loadWinchLimit = 4;
+	
+	// CANs
+	public static int CAN_D_FL = 1;
+	public static int CAN_D_RL = 2;
+	public static int CAN_D_FR = 3;
+	public static int CAN_D_RR = 4;
+	
+	// PWMs
+	public static int PWM_A_Intake = 0;
+	public static int PWM_A_Pivot = 1;
+	public static int PWM_Winch = 2;
+	public static int PWM_LoadWinch = 3;
+	
+	// Relays
+	public static int R_BallIntake = 1;
+	
+	// Digital Inputs
+	public static int LIM_Pivot = 3;
+	public static int LIM_LoadWinch = 4;
+	
+	// Analog Inputs
+	public static int POT_ArmLift = 0;
+	
+	// USB Controllers
+	public static int USB_Driver = 0;
+	public static int USB_AUX = 1;
 
 }

@@ -1,12 +1,10 @@
 package org.usfirst.frc.team1322.robot.subsystems;
 
 import org.usfirst.frc.team1322.robot.commands.BallIntakeTeleop;
-import org.usfirst.frc.team1322.robot.commands.BallPickupTeleop;
-import org.usfirst.frc.team1322.robot.Robot;
+import org.usfirst.frc.team1322.robot.RobotMap;
 
 import edu.wpi.first.wpilibj.Relay;
 import edu.wpi.first.wpilibj.Relay.Value;
-import edu.wpi.first.wpilibj.Victor;
 import edu.wpi.first.wpilibj.command.Subsystem;
 
 /**
@@ -20,7 +18,7 @@ public class BallIntake extends Subsystem {
 	Relay ballIntake;
 	//Ball Sucker
 	public BallIntake() {
-		ballIntake = new Relay(1);
+		ballIntake = new Relay(RobotMap.R_BallIntake);
 		}
 	
 	public void ballIntakeIn() {

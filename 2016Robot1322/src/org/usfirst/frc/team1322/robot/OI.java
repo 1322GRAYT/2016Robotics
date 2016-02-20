@@ -23,7 +23,7 @@ public class OI {
     // until it is finished as determined by it's isFinished method.
     // button.whenReleased(new ExampleCommand());
 	
-	public XBoxController DriverStick = new XBoxController(0),
-			AuxStick = new XBoxController(1);
+	public XBoxController DriverStick = new XBoxController(RobotMap.USB_Driver),
+			AuxStick = new XBoxController(RobotMap.USB_AUX);
 }
 

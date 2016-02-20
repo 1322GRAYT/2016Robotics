@@ -1,5 +1,6 @@
 package org.usfirst.frc.team1322.robot.subsystems;
 
+import org.usfirst.frc.team1322.robot.RobotMap;
 import org.usfirst.frc.team1322.robot.commands.ArmTiltTeleop;
 import edu.wpi.first.wpilibj.AnalogInput;
 import edu.wpi.first.wpilibj.AnalogPotentiometer;
@@ -15,8 +16,8 @@ public class ArmTilt extends Subsystem {
     // here. Call these from Commands.
     
     public ArmTilt(){
-    	armTilt = new Victor(2);
-    	armPot = new AnalogPotentiometer(0, 90, 30);
+    	armTilt = new Victor(RobotMap.PWM_A_Pivot);
+    	armPot = new AnalogPotentiometer(RobotMap.POT_ArmLift, 90, 30);
     	AnalogInput ai = new AnalogInput(1);
     	armPot = new AnalogPotentiometer(ai, 360, 30);
     }
