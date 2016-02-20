@@ -1,6 +1,6 @@
 package org.usfirst.frc.team1322.robot.subsystems;
 
-import org.usfirst.frc.team1322.robot.commands.BallMoveTeleop;
+import org.usfirst.frc.team1322.robot.commands.BallPickupTeleop;
 
 import edu.wpi.first.wpilibj.Relay;
 import edu.wpi.first.wpilibj.Relay.Value;
@@ -15,20 +15,12 @@ public class BallPickup extends Subsystem {
     // Put methods for controlling this subsystem
     // here. Call these from Commands.
 	
-	Relay ballSuck;
 	Victor ballMove;
-	//Ball Sucker
 	public BallPickup() {
-		ballSuck = new Relay(1);
+
 		ballMove = new Victor(5);
 		}
 	
-	public void ballSuckOn() {
-		ballSuckPower(Value.kOn);
-	}
-	public void ballSuckOff() {
-		ballSuckPower(Value.kOff);
-	}
 	//Ball Mover
 	public void ballMoveUp() {
 		ballMovePower(1);
@@ -41,15 +33,15 @@ public class BallPickup extends Subsystem {
 	}
     public void initDefaultCommand() {
         // Set the default command for a subsystem here.
-        setDefaultCommand(new BallMoveTeleop());
+        setDefaultCommand(new BallPickupTeleop());
     }
 
 	public void ballMovePower(double pickupPower) {
 		// TODO Auto-generated method stub
 		ballMove.set(pickupPower);
-	}
-	public void ballSuckPower(Value suckPower) {
-		ballSuck.set(suckPower);
+		setDefaultCommand(new BallPickupTeleop());
 	}
 }
+
+
 

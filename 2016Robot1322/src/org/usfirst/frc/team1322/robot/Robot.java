@@ -6,6 +6,7 @@ import edu.wpi.first.wpilibj.command.Command;
 import edu.wpi.first.wpilibj.command.Scheduler;
 import edu.wpi.first.wpilibj.livewindow.LiveWindow;
 import org.usfirst.frc.team1322.robot.commands.ExampleCommand;
+import org.usfirst.frc.team1322.robot.subsystems.BallIntake;
 import org.usfirst.frc.team1322.robot.subsystems.BallPickup;
 import org.usfirst.frc.team1322.robot.subsystems.ExampleSubsystem;
 import edu.wpi.first.wpilibj.smartdashboard.SendableChooser;
@@ -22,7 +23,7 @@ public class Robot extends IterativeRobot {
 
 	public static final ExampleSubsystem exampleSubsystem = new ExampleSubsystem();
 	public static final BallPickup ballPickup = new BallPickup();
-	public static final BallPickup ballSuck = new BallPickup();
+	public static final BallIntake ballIntake = new BallIntake();
 	public static OI oi;
 
     Command autonomousCommand;

@@ -7,32 +7,39 @@ import edu.wpi.first.wpilibj.command.Command;
 /**
  *
  */
-public class BallMoveTimed extends Command {
-	
+
+enum intakeDirection{kIn, kOut}
+
+public class BallIntakeTimed extends Command {
 	// Internal Resources Required:
-	private Timer BallTimer1;
-	private double pickupTimer, pickupPower;
+	private Timer BallTimer2;
+	private double pickupTimer; 
+	private intakeDirection direction;
 	
-    public BallMoveTimed(double PickupTimer, double PickupPower) {
+    public BallIntakeTimed(double PickupTimer, intakeDirection Direction) {
     	// What we need from the outside:
     	pickupTimer = PickupTimer;
-    	pickupPower = PickupPower;
+    	direction = Direction;
     	
     	// What Subsystem is required?
-    	requires(Robot.ballPickup);
+    	requires(Robot.ballIntake);
     	
     	// What internal resources are required to be initialized?
-    	BallTimer1 = new Timer();
+    	BallTimer2 = new Timer();
     	
     }
 
     // Called just before this Command runs the first time
     protected void initialize() {
     	// Start Resources that are needed
-    	BallTimer1.reset();
-    	BallTimer1.start();
-    	Robot.ballPickup.ballMovePower(pickupPower);
-    
+    	BallTimer2.reset();
+    	BallTimer2.start();
+    	if (direction == intakeDirection.kIn){
+    		Robot.ballIntake.ballIntakeControl(true, false);
+    	}
+    	else {
+    		Robot.ballIntake.ballIntakeControl(false, true);
+    	}
     }
 
     // Called repeatedly when this Command is scheduled to run
@@ -43,14 +50,14 @@ public class BallMoveTimed extends Command {
     // Make this return true when this Command no longer needs to run execute()
     protected boolean isFinished() {
     	// Why does this command need to end?
-        return BallTimer1.get() > pickupTimer;
+        return BallTimer2.get() > pickupTimer;
     }
 
     // Called once after isFinished returns true
     protected void end() {
     	// Stop the resources that are being used
-    	Robot.ballPickup.ballMoveStop();
-    	BallTimer1.stop();
+    	Robot.ballIntake.ballIntakeOff();
+    	BallTimer2.stop();
     }
 
     // Called when another command which requires one or more of the same
