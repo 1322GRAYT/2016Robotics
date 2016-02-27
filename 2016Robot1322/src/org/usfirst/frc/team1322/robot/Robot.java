@@ -10,6 +10,8 @@ import org.usfirst.frc.team1322.robot.subsystems.ArmTilt;
 import org.usfirst.frc.team1322.robot.subsystems.BallIntake;
 import org.usfirst.frc.team1322.robot.subsystems.BallPickup;
 import org.usfirst.frc.team1322.robot.subsystems.DriveSubsystem;
+import org.usfirst.frc.team1322.robot.subsystems.ShooterSystem;
+
 import edu.wpi.first.wpilibj.smartdashboard.SendableChooser;
 import edu.wpi.first.wpilibj.smartdashboard.SmartDashboard;
 
@@ -22,10 +24,12 @@ import edu.wpi.first.wpilibj.smartdashboard.SmartDashboard;
 public class Robot extends IterativeRobot {
 	
 	// Setup Subsystems
-	public final static DriveSubsystem DriveSystem = new DriveSubsystem();
+	public static final DriveSubsystem DriveSystem = new DriveSubsystem();
 	public static final BallPickup ballPickup = new BallPickup();
 	public static final BallIntake ballIntake = new BallIntake();
 	public static final ArmTilt armTilt = new ArmTilt();
+	public static final ShooterSystem shooterSystem = new ShooterSystem();
+	
 	
 	// Base Code
 	public static OI oi;
