@@ -2,6 +2,7 @@ package org.usfirst.frc.team1322.robot.commands;
 
 import org.usfirst.frc.team1322.robot.Robot;
 import edu.wpi.first.wpilibj.command.Command;
+import edu.wpi.first.wpilibj.smartdashboard.SmartDashboard;
 
 /**
  *
@@ -19,7 +20,9 @@ public class ArmTiltTeleop extends Command {
 
     // Called repeatedly when this Command is scheduled to run
     protected void execute() {
-    	Robot.armTilt.armTiltPower(Robot.oi.AuxStick.RightStick.Y);
+    	Robot.oi.AuxStick.refresh();
+    	Robot.armTilt.override(Robot.oi.AuxStick.LeftStick.Y);
+    	SmartDashboard.putNumber("ArmPosition", Robot.armTilt.GetArmPosition());
     }
 
     // Make this return true when this Command no longer needs to run execute()

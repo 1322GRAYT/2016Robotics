@@ -1,6 +1,7 @@
 package org.usfirst.frc.team1322.robot.subsystems;
 
 import org.usfirst.frc.team1322.robot.RobotMap;
+import org.usfirst.frc.team1322.robot.commands.BallFireTele;
 
 import edu.wpi.first.wpilibj.DigitalInput;
 import edu.wpi.first.wpilibj.Relay;
@@ -24,7 +25,7 @@ public class ShooterSystem extends Subsystem {
 		sc_Engage = new Relay(RobotMap.R_WinchEngage);
 		l_Fired = new DigitalInput(RobotMap.LIM_Fired);
 		l_Loaded = new DigitalInput(RobotMap.LIM_Loaded);
-		l_CamPosition = new DigitalInput(RobotMap.LIM_LoadWinch);
+		l_CamPosition = new DigitalInput(RobotMap.LIM_Cam);
 	}
 	
 	public void SetWinchPower(double power){
@@ -36,24 +37,36 @@ public class ShooterSystem extends Subsystem {
 	}
 	
 	public boolean GetFiredLim(){
-		return l_Fired.get();
+		return !l_Fired.get();
 	}
 	
 	public boolean GetLoadedLim(){
-		return l_Loaded.get();
+		return !l_Loaded.get();
 	}
 	
 	public boolean GetCamPosition(){
 		return l_CamPosition.get();
 	}
+	
+	public void EngageCam(){
+		SetEngage(Value.kForward);
+	}
+	
+	public void StopCam(){
+		SetEngage(Value.kOff);
+	}
 
     public void initDefaultCommand() {
         // Set the default command for a subsystem here.
-        //setDefaultCommand(new MySpecialCommand());
+        //setDefaultCommand(new BallFireTele());
     }
 
 	public void SetWinchEngage() {
-		SetWinchPower(1);
+		SetWinchPower(-1);
+	}
+	
+	public void StopWinch(){
+		SetWinchPower(0);
 	}
 }
 

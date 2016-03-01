@@ -3,9 +3,12 @@ package org.usfirst.frc.team1322.robot.subsystems;
 import org.usfirst.frc.team1322.robot.commands.BallIntakeTeleop;
 import org.usfirst.frc.team1322.robot.RobotMap;
 
+import edu.wpi.first.wpilibj.DigitalInput;
 import edu.wpi.first.wpilibj.Relay;
 import edu.wpi.first.wpilibj.Relay.Value;
+import edu.wpi.first.wpilibj.Talon;
 import edu.wpi.first.wpilibj.command.Subsystem;
+import edu.wpi.first.wpilibj.livewindow.LiveWindow;
 
 /**
  *
@@ -16,10 +19,20 @@ public class BallIntake extends Subsystem {
     // here. Call these from Commands.
 	
 	Relay ballIntake;
+	Talon ballIntakeUD;
+	DigitalInput LIM_Up, LIM_Down;
 	//Ball Sucker
 	public BallIntake() {
 		ballIntake = new Relay(RobotMap.R_BallIntake);
-		}
+		ballIntakeUD = new Talon(RobotMap.PWM_Intake_UD);
+		
+		LIM_Up = new DigitalInput(RobotMap.LIM_Intake_Up);
+		LIM_Down = new DigitalInput(RobotMap.LIM_Intake_Down);
+		
+		LiveWindow.addActuator("Ball Intake", "Ball Intake", ballIntake);
+	}
+	
+	
 	
 	public void ballIntakeIn() {
 		ballIntakePower(Value.kReverse);
@@ -30,6 +43,11 @@ public class BallIntake extends Subsystem {
 	public void ballIntakeOff() {
 		ballIntakePower(Value.kOff);
 	}
+	
+	public void ballIntakeUDPower(double power){
+		ballIntakeUD.set(!LIM_Up.get() && (power < 0) ? 0 : (!LIM_Down.get() && power > 0 ? 0 : power));
+	}
+	
 	public void ballIntakeControl (boolean in, boolean out) {
 		if (!in && !out){
 			ballIntakeOff();

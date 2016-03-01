@@ -7,6 +7,7 @@ import edu.wpi.first.wpilibj.CANTalon;
 import edu.wpi.first.wpilibj.CANTalon.TalonControlMode;
 import edu.wpi.first.wpilibj.RobotDrive;
 import edu.wpi.first.wpilibj.command.Subsystem;
+import edu.wpi.first.wpilibj.livewindow.LiveWindow;
 /**
  *
  */
@@ -27,10 +28,16 @@ public class DriveSubsystem extends Subsystem {
     	DriveSystem = new RobotDrive(m_CAN_D_FL, m_CAN_D_RL,
     			m_CAN_D_FR, m_CAN_D_RR);
     	
+    	LiveWindow.addActuator("Robot Drive", "Front Left", m_CAN_D_FL);
+    	LiveWindow.addActuator("Robot Drive", "Rear Left", m_CAN_D_RL);
+    	LiveWindow.addActuator("Robot Drive", "Front Right", m_CAN_D_FR);
+    	LiveWindow.addActuator("Robot Drive", "Rear Right", m_CAN_D_RR);
+    	
     }
      
     public void ArcadeDrive(double forwardPower, double turnPower) {
     	DriveSystem.arcadeDrive(forwardPower, turnPower);
+    	System.out.println(forwardPower);
     }
     
 	public void Stop() {

@@ -8,9 +8,9 @@ import edu.wpi.first.wpilibj.livewindow.LiveWindow;
 import org.usfirst.frc.team1322.robot.commands.AutonimousMode1;
 import org.usfirst.frc.team1322.robot.subsystems.ArmTilt;
 import org.usfirst.frc.team1322.robot.subsystems.BallIntake;
-import org.usfirst.frc.team1322.robot.subsystems.BallPickup;
 import org.usfirst.frc.team1322.robot.subsystems.DriveSubsystem;
 import org.usfirst.frc.team1322.robot.subsystems.ShooterSystem;
+import org.usfirst.frc.team1322.robot.subsystems.WinchLift;
 
 import edu.wpi.first.wpilibj.smartdashboard.SendableChooser;
 import edu.wpi.first.wpilibj.smartdashboard.SmartDashboard;
@@ -25,10 +25,10 @@ public class Robot extends IterativeRobot {
 	
 	// Setup Subsystems
 	public static final DriveSubsystem DriveSystem = new DriveSubsystem();
-	public static final BallPickup ballPickup = new BallPickup();
 	public static final BallIntake ballIntake = new BallIntake();
 	public static final ArmTilt armTilt = new ArmTilt();
 	public static final ShooterSystem shooterSystem = new ShooterSystem();
+	public static final WinchLift winchLift = new WinchLift();
 	
 	
 	// Base Code

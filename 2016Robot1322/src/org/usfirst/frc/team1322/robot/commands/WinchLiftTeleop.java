@@ -7,23 +7,20 @@ import edu.wpi.first.wpilibj.command.Command;
 /**
  *
  */
-public class BallIntakeTeleop extends Command {
+public class WinchLiftTeleop extends Command {
 
-    public BallIntakeTeleop() {
-        // Use requires() here to declare subsystem dependencies
-        // eg. requires(chassis);
-    	requires(Robot.ballIntake);
+    public WinchLiftTeleop() {
+        requires(Robot.winchLift);
     }
 
     // Called just before this Command runs the first time
     protected void initialize() {
+    	
     }
 
     // Called repeatedly when this Command is scheduled to run
     protected void execute() {
-    	Robot.oi.AuxStick.refresh();
-    	Robot.ballIntake.ballIntakeControl(Robot.oi.AuxStick.Buttons.LB.current, Robot.oi.AuxStick.Buttons.RB.current);
-    	Robot.ballIntake.ballIntakeUDPower(Robot.oi.AuxStick.RightStick.Y);
+    	Robot.winchLift.LiftPower(Robot.oi.AuxStick.Triggers.Right);
     }
 
     // Make this return true when this Command no longer needs to run execute()

@@ -22,6 +22,7 @@ public class TeleopDriveSystem extends Command {
     // Called repeatedly when this Command is scheduled to run
     protected void execute() {
     	// @ TODO: When merged into main, add in joysticks
+    	Robot.oi.DriverStick.refresh();
     	Robot.DriveSystem.ArcadeDrive(Robot.oi.DriverStick.LeftStick.Y,
     			Robot.oi.DriverStick.RightStick.X);
     }
