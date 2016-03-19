@@ -1,8 +1,6 @@
 package org.usfirst.frc.team1322.robot.subsystems;
 
 import org.usfirst.frc.team1322.robot.RobotMap;
-import org.usfirst.frc.team1322.robot.commands.BallFireTele;
-
 import edu.wpi.first.wpilibj.DigitalInput;
 import edu.wpi.first.wpilibj.Relay;
 import edu.wpi.first.wpilibj.Relay.Value;

@@ -31,8 +31,7 @@ public class ArmTiltTimed extends Command {
     	// Start Resources that are needed
     	ArmTimer.reset();
     	ArmTimer.start();
-    	Robot.armTilt.armTiltPower(armPower);
-    
+    	Robot.armTilt.override(armPower);
     }
 
     // Called repeatedly when this Command is scheduled to run

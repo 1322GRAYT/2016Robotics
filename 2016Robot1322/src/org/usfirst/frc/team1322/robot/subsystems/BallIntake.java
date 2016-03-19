@@ -35,10 +35,16 @@ public class BallIntake extends Subsystem {
 	
 	
 	public void ballIntakeIn() {
-		ballIntakePower(Value.kReverse);
+		if (ballIntake.get() != Value.kReverse){
+			ballIntakePower(Value.kReverse);
+		}
+		ballIntakePower(Value.kOn);
 	}
 	public void ballIntakeOut() {
-		ballIntakePower(Value.kForward);
+		if (ballIntake.get() != Value.kForward){
+			ballIntakePower(Value.kForward);
+		}
+		ballIntakePower(Value.kOn);
 	}
 	public void ballIntakeOff() {
 		ballIntakePower(Value.kOff);

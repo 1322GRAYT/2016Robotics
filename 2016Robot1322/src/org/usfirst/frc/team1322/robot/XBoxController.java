@@ -4,7 +4,7 @@ import edu.wpi.first.wpilibj.Joystick;
 import edu.wpi.first.wpilibj.Joystick.RumbleType;
 
 public class XBoxController {
-	 	private final Joystick joy;
+	 	public final Joystick joy;
 	    private Button[] button=new Button[10];
 	    public Axis LeftStick=new Axis(0,0), RightStick=new Axis(0,0);
 	    public triggers Triggers=new triggers(0,0);

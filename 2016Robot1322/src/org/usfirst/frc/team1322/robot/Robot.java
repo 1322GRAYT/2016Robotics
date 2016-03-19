@@ -40,13 +40,14 @@ public class Robot extends IterativeRobot {
     public void robotInit() {
 		oi = new OI();
         chooser = new SendableChooser();
-        chooser.addDefault("Default Auto", new AutonimousMode1());
-        //chooser.addObject("My Auto", new MyAutoCommand());
+        chooser.addDefault("Drive Forward Auton", new AutonimousMode1());
+        chooser.addObject("NULL AUTON", null);
         SmartDashboard.putData("Auto mode", chooser);
         CameraServer cams = CameraServer.getInstance();
         // set any cam parameters, then start capture
-        //  TODO: Update string to where the camera is actually located in roboRIO 
         cams.startAutomaticCapture("cam0");
+        //SmartDashboard.getNumber("Drive_Time", 5.0);
+        //SmartDashboard.getNumber("Arm_Down_Time", 1.0);
     }
 	
 	// Disabled Init
