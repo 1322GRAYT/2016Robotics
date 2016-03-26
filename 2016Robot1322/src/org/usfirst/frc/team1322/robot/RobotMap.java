@@ -24,6 +24,8 @@ public class RobotMap {
 	public static final int PWM_Lift_Winch2 = 6; // Limit is Fired and Not
 	public static final int PWM_Lift_Winch = 3; // No Limit
 	public static final int PWM_Intake_UD = 5; // Up Down Limit
+	public static final int PWM_Servo_Rel_Left = 6;
+	public static final int PWM_Servo_Rel_Right = 7;
 	
 	// Relays
 	// TODO: Verify Relays Components and Ports
@@ -45,5 +47,6 @@ public class RobotMap {
 	// USB Controllers
 	public static final int USB_Driver = 0;
 	public static final int USB_AUX = 1;
+	
 
 }
