@@ -17,11 +17,9 @@ public class WinchLift extends Subsystem {
 
 	Victor m_Left, m_Right;
 	Servo m_RelLeft, m_RelRight;
-	private double SetPoint2;
 	
 	public WinchLift(){
 		m_Left = new Victor(RobotMap.PWM_Lift_Winch);
-		m_Right = new Victor(RobotMap.PWM_Lift_Winch2);
 		m_RelLeft = new Servo(RobotMap.PWM_Servo_Rel_Left);
 		m_RelRight = new Servo(RobotMap.PWM_Servo_Rel_Right);
 	}
@@ -33,12 +31,20 @@ public class WinchLift extends Subsystem {
 	
 	public void ReleaseWinch(boolean out, boolean in){
 		if(out){
-        	SetPoint2 = 1.0;
+        	WinchReleaseOut();
         } else if(in){
-        	SetPoint2 = 0;
+        	WinchReleaseIn();
         }
-        m_RelLeft.set(SetPoint2);
-        m_RelRight.set(1-SetPoint2);
+	}
+	
+	void WinchReleaseIn(){
+		m_RelLeft.set(0.0);
+        m_RelRight.set(1.0);
+	}
+	
+	void WinchReleaseOut(){
+		m_RelLeft.set(1.0);
+        m_RelRight.set(0.0);
 	}
 	
     public void initDefaultCommand() {

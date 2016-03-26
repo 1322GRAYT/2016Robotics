@@ -25,7 +25,7 @@ public class FireShooter extends Command {
     	}
     	else{
     		SmartDashboard.putString("FiredStatus 2", "Yes, going");
-    		Robot.shooterSystem.EngageCam();
+    		Robot.shooterSystem.SetEngage(true);
     		isShooterNotReady = false;
     		hasCycled = false;
     	}
@@ -50,7 +50,7 @@ public class FireShooter extends Command {
     // Called once after isFinished returns true
     protected void end() {
     	SmartDashboard.putString("FiredStatus", "Fired");
-    	Robot.shooterSystem.StopCam();
+    	Robot.shooterSystem.SetEngage(false);
     }
 
     // Called when another command which requires one or more of the same

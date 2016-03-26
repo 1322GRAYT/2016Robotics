@@ -21,7 +21,6 @@ public class BallIntakeTeleop extends Command {
     protected void execute() {
     	Robot.oi.AuxStick.refresh();
     	Robot.ballIntake.ballIntakeControl(Robot.oi.AuxStick.Buttons.LB.current, Robot.oi.AuxStick.Buttons.RB.current);
-    	Robot.ballIntake.ballIntakeUDPower(Robot.oi.AuxStick.RightStick.Y);
     }
 
     // Make this return true when this Command no longer needs to run execute()

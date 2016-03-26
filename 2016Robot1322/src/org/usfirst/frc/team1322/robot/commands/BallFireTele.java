@@ -1,8 +1,6 @@
 package org.usfirst.frc.team1322.robot.commands;
 
 import org.usfirst.frc.team1322.robot.Robot;
-
-import edu.wpi.first.wpilibj.Relay.Value;
 import edu.wpi.first.wpilibj.command.Command;
 import edu.wpi.first.wpilibj.smartdashboard.SmartDashboard;
 
@@ -21,7 +19,7 @@ public class BallFireTele extends Command {
 
     // Called repeatedly when this Command is scheduled to run
     protected void execute() {
-    	Robot.shooterSystem.SetEngage((Robot.oi.AuxStick.Buttons.A.current ? Value.kForward : Value.kOff));
+    	Robot.shooterSystem.SetEngage(true);
     	Robot.shooterSystem.SetWinchPower(Robot.oi.AuxStick.RightStick.Y);
     	SmartDashboard.putBoolean("Fired Limit", Robot.shooterSystem.GetFiredLim());
     	SmartDashboard.putBoolean("Loaded Limit", Robot.shooterSystem.GetLoadedLim());
