@@ -15,7 +15,7 @@ public class WinchLift extends Subsystem {
     // Put methods for controlling this subsystem
     // here. Call these from Commands.
 
-	Victor m_Left, m_Right;
+	Victor m_Left;
 	Servo m_RelLeft, m_RelRight;
 	
 	public WinchLift(){
@@ -26,7 +26,6 @@ public class WinchLift extends Subsystem {
 	
 	public void LiftPower(double power){
 		m_Left.set(power);
-		m_Right.set(power);
 	}
 	
 	public void ReleaseWinch(boolean out, boolean in){
