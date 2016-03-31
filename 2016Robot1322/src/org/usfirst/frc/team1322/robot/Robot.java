@@ -5,6 +5,9 @@ import edu.wpi.first.wpilibj.CameraServer;
 import edu.wpi.first.wpilibj.command.Command;
 import edu.wpi.first.wpilibj.command.Scheduler;
 import edu.wpi.first.wpilibj.livewindow.LiveWindow;
+
+import org.usfirst.frc.team1322.robot.commands.AutonNoArmDrop;
+import org.usfirst.frc.team1322.robot.commands.AutonShoot;
 import org.usfirst.frc.team1322.robot.commands.AutonimousMode1;
 import org.usfirst.frc.team1322.robot.subsystems.ArmTilt;
 import org.usfirst.frc.team1322.robot.subsystems.BallIntake;
@@ -41,6 +44,8 @@ public class Robot extends IterativeRobot {
 		oi = new OI();
         chooser = new SendableChooser();
         chooser.addDefault("Drive Forward Auton", new AutonimousMode1());
+        chooser.addObject("No Arm Drop", new AutonNoArmDrop());
+        chooser.addObject("DONT USE THIS, BAD THINGS WILL HAPPEN!!! #SarahSaysHi!", new AutonShoot());
         chooser.addObject("NULL AUTON", null);
         SmartDashboard.putData("Auto mode", chooser);
         CameraServer cams = CameraServer.getInstance();
