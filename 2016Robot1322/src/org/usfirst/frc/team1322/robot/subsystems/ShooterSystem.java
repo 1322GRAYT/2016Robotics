@@ -16,7 +16,6 @@ public class ShooterSystem extends Subsystem {
 	DigitalInput l_Fired, l_Loaded, l_CamPosition;
 	
 	public ShooterSystem(){
-		sc_Winch = new Victor(RobotMap.PWM_Shooter_Winch);
 		sc_Engage = new Victor(RobotMap.PWM_Shooter_Release);
 		l_Fired = new DigitalInput(RobotMap.LIM_Fired);
 		l_Loaded = new DigitalInput(RobotMap.LIM_Loaded);

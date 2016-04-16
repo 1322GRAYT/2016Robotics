@@ -8,6 +8,6 @@ import edu.wpi.first.wpilibj.command.CommandGroup;
 public class AutonNoArmDrop extends CommandGroup {
     
     public  AutonNoArmDrop() {
-    	addSequential(new DriveAuton(5, -0.75, 0));
+    	addSequential(new DriveAuton(2.75, -1.0, 0));
     }
 }

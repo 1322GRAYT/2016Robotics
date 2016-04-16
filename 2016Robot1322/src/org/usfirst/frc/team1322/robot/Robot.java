@@ -5,15 +5,9 @@ import edu.wpi.first.wpilibj.CameraServer;
 import edu.wpi.first.wpilibj.command.Command;
 import edu.wpi.first.wpilibj.command.Scheduler;
 import edu.wpi.first.wpilibj.livewindow.LiveWindow;
-
 import org.usfirst.frc.team1322.robot.commands.AutonNoArmDrop;
-import org.usfirst.frc.team1322.robot.commands.AutonShoot;
 import org.usfirst.frc.team1322.robot.commands.AutonimousMode1;
-import org.usfirst.frc.team1322.robot.subsystems.ArmTilt;
-import org.usfirst.frc.team1322.robot.subsystems.BallIntake;
-import org.usfirst.frc.team1322.robot.subsystems.DriveSubsystem;
-import org.usfirst.frc.team1322.robot.subsystems.ShooterSystem;
-import org.usfirst.frc.team1322.robot.subsystems.WinchLift;
+import org.usfirst.frc.team1322.robot.subsystems.*;
 
 import edu.wpi.first.wpilibj.smartdashboard.SendableChooser;
 import edu.wpi.first.wpilibj.smartdashboard.SmartDashboard;
@@ -30,7 +24,6 @@ public class Robot extends IterativeRobot {
 	public static final DriveSubsystem DriveSystem = new DriveSubsystem();
 	public static final BallIntake ballIntake = new BallIntake();
 	public static final ArmTilt armTilt = new ArmTilt();
-	public static final ShooterSystem shooterSystem = new ShooterSystem();
 	public static final WinchLift winchLift = new WinchLift();
 	
 	
@@ -45,7 +38,7 @@ public class Robot extends IterativeRobot {
         chooser = new SendableChooser();
         chooser.addDefault("Drive Forward Auton", new AutonimousMode1());
         chooser.addObject("No Arm Drop", new AutonNoArmDrop());
-        chooser.addObject("DONT USE THIS, BAD THINGS WILL HAPPEN!!! #SarahSaysHi!", new AutonShoot());
+        //chooser.addObject("DONT USE THIS, BAD THINGS WILL HAPPEN!!! #SarahSaysHi!", new AutonShoot());
         chooser.addObject("NULL AUTON", null);
         SmartDashboard.putData("Auto mode", chooser);
         CameraServer cams = CameraServer.getInstance();

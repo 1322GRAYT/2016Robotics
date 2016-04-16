@@ -20,8 +20,8 @@ public class WinchLiftTeleop extends Command {
 
     // Called repeatedly when this Command is scheduled to run
     protected void execute() {
-    	Robot.winchLift.LiftPower(Robot.oi.AuxStick.Triggers.Right);
-    	Robot.winchLift.ReleaseWinch(Robot.oi.AuxStick.Buttons.X.current, Robot.oi.AuxStick.Buttons.X.current);
+    	Robot.winchLift.LiftPower(Robot.oi.AuxStick.Triggers.Right-Robot.oi.AuxStick.Triggers.Left);
+    	Robot.winchLift.ReleaseWinch(Robot.oi.AuxStick.Buttons.X.current, Robot.oi.AuxStick.Buttons.Y.current);
     }
 
     // Make this return true when this Command no longer needs to run execute()

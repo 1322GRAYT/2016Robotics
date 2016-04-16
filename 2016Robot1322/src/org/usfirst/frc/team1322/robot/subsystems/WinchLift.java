@@ -6,6 +6,7 @@ import org.usfirst.frc.team1322.robot.commands.WinchLiftTeleop;
 import edu.wpi.first.wpilibj.Servo;
 import edu.wpi.first.wpilibj.Victor;
 import edu.wpi.first.wpilibj.command.Subsystem;
+import edu.wpi.first.wpilibj.smartdashboard.SmartDashboard;
 
 /**
  *
@@ -15,36 +16,29 @@ public class WinchLift extends Subsystem {
     // Put methods for controlling this subsystem
     // here. Call these from Commands.
 
-	Victor m_Left;
-	Servo m_RelLeft, m_RelRight;
+	Victor m_Lift;
+	Servo m_Brake;
 	
 	public WinchLift(){
-		m_Left = new Victor(RobotMap.PWM_Lift_Winch);
-		m_RelLeft = new Servo(RobotMap.PWM_Servo_Rel_Left);
-		m_RelRight = new Servo(RobotMap.PWM_Servo_Rel_Right);
+		m_Lift = new Victor(RobotMap.PWM_Lift_Winch);
+		m_Brake = new Servo(RobotMap.PWM_Servo_Brake);
 	}
 	
 	public void LiftPower(double power){
-		m_Left.set(power);
+		m_Lift.set(power);
 	}
 	
 	public void ReleaseWinch(boolean out, boolean in){
 		if(out){
-        	WinchReleaseOut();
+        	m_Brake.set(0);
+        	SmartDashboard.putString("Brake Status", "Out");
         } else if(in){
-        	WinchReleaseIn();
+        	m_Brake.set(1);
+        	SmartDashboard.putString("Brake Status", "Engaged");
         }
 	}
 	
-	void WinchReleaseIn(){
-		m_RelLeft.set(0.0);
-        m_RelRight.set(1.0);
-	}
 	
-	void WinchReleaseOut(){
-		m_RelLeft.set(1.0);
-        m_RelRight.set(0.0);
-	}
 	
     public void initDefaultCommand() {
         // Set the default command for a subsystem here.

@@ -1,45 +1,36 @@
 package org.usfirst.frc.team1322.robot.subsystems;
 
-import org.usfirst.frc.team1322.robot.commands.BallIntakeTeleop;
 import org.usfirst.frc.team1322.robot.RobotMap;
-import edu.wpi.first.wpilibj.Servo;
+import edu.wpi.first.wpilibj.DigitalInput;
+import edu.wpi.first.wpilibj.Talon;
 import edu.wpi.first.wpilibj.command.Subsystem;
 
 /**
  *
  */
 public class BallIntake extends Subsystem {
-	Servo m_LeftGrab, m_RightGrab;
+	// pwm3
 	
-	//Ball Sucker
+	Talon m_BallIntake;
+	DigitalInput s_BallIn;
+	
 	public BallIntake() {
-		m_LeftGrab = new Servo(RobotMap.PWM_Servo_Ball_Grab_Left);
-		m_RightGrab = new Servo(RobotMap.PWM_Servo_Ball_Grab_Right);
+		m_BallIntake = new Talon(RobotMap.PWM_Ball_Intake);
+		m_BallIntake.setInverted(true);
+		s_BallIn = new DigitalInput(RobotMap.LIM_Ball_In);
 	}
 	
-	public void ballIntakeControl (boolean open, boolean close) {
-		if(open) {
-			ballIntakeOpen();
-		}
-		else if (close){
-			ballIntakeClose();
-		}
+	public boolean BallVal(){
+		return s_BallIn.get();
 	}
 	
-	private void ballIntakeClose() {
-		m_LeftGrab.set(1.0);
-		m_RightGrab.set(0.0);
-		
-	}
-
-	private void ballIntakeOpen() {
-		m_LeftGrab.set(0.0);
-		m_RightGrab.set(1.0);
+	public void IntakePower(double power){
+		m_BallIntake.set(power);
 	}
 
 	protected void initDefaultCommand() {
 		// TODO Auto-generated method stub
-		setDefaultCommand(new BallIntakeTeleop());
+		//setDefaultCommand(new BallIntakeTeleop());
 	}
 }
 

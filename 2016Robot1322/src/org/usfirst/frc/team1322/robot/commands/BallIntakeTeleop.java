@@ -20,7 +20,7 @@ public class BallIntakeTeleop extends Command {
     // Called repeatedly when this Command is scheduled to run
     protected void execute() {
     	Robot.oi.AuxStick.refresh();
-    	Robot.ballIntake.ballIntakeControl(Robot.oi.AuxStick.Buttons.LB.current, Robot.oi.AuxStick.Buttons.RB.current);
+    	//Robot.ballIntake.ballIntakeControl(Robot.oi.AuxStick.Buttons.LB.current, Robot.oi.AuxStick.Buttons.RB.current);
     }
 
     // Make this return true when this Command no longer needs to run execute()

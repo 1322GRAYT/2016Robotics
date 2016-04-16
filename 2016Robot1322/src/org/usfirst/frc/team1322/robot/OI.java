@@ -1,7 +1,9 @@
 package org.usfirst.frc.team1322.robot;
 
 import org.usfirst.frc.team1322.robot.XBoxController;
-import org.usfirst.frc.team1322.robot.commands.CycleShooter;
+import org.usfirst.frc.team1322.robot.commands.BallIntakeToGrab;
+import org.usfirst.frc.team1322.robot.commands.LaunchBall;
+
 import edu.wpi.first.wpilibj.buttons.JoystickButton;
 
 
@@ -29,10 +31,12 @@ public class OI {
 	
 	public XBoxController DriverStick = new XBoxController(RobotMap.USB_Driver), 
 			AuxStick = new XBoxController(RobotMap.USB_AUX);
-	public JoystickButton Launch = new JoystickButton(AuxStick.joy,1);
+	public JoystickButton Launch = new JoystickButton(AuxStick.joy, 2),
+						  Intake = new JoystickButton(AuxStick.joy, 1);
 	
 	public OI(){
-		Launch.toggleWhenPressed(new CycleShooter());
+		Intake.toggleWhenPressed(new BallIntakeToGrab());
+		Launch.toggleWhenPressed(new LaunchBall());
 	}
 }
 

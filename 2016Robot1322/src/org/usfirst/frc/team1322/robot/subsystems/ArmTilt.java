@@ -18,7 +18,7 @@ public class ArmTilt extends Subsystem {
     	armTilt = new Victor(RobotMap.PWM_A_Pivot);
     	LiveWindow.addActuator("Arm Tilt", "Arm Tilt Motor", armTilt);
     	
-    	armPot = new AnalogPotentiometer(RobotMap.POT_ArmLift, 90, 30); // TODO: Figure this line out
+    	armPot = new AnalogPotentiometer(RobotMap.POT_ArmLift, 270, -7); // TODO: Figure this line out
     	LiveWindow.addSensor("Arm Tilt", "Arm Tilt Angle", armPot);
     }
     
@@ -36,7 +36,7 @@ public class ArmTilt extends Subsystem {
     
     public void override(double power){
     	System.out.println(GetArmPosition());
-    	armTilt.set(power*3/4);
+    	armTilt.set(power);
     }
     
     public void setArmLimit(){
