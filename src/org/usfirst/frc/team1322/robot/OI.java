@@ -1,6 +1,10 @@
 package org.usfirst.frc.team1322.robot;
 
 import org.usfirst.frc.team1322.robot.XBoxController;
+import org.usfirst.frc.team1322.robot.commands.ShootBall;
+import org.usfirst.frc.team1322.robot.commands.keepOut;
+
+import edu.wpi.first.wpilibj.buttons.JoystickButton;
 
 
 
@@ -12,5 +16,13 @@ public class OI {
 	
 	public XBoxController DriverStick = new XBoxController(RobotMap.USB_Driver), 
 			AuxStick = new XBoxController(RobotMap.USB_AUX);
-	}
+	//public Button Launch = new Button(AuxStick.Buttons);
+	public JoystickButton keepOut = new JoystickButton(AuxStick.joy,1),
+						  shoot = new JoystickButton(AuxStick.joy,2);
+	
+	public OI(){
+	keepOut.toggleWhenActive(new keepOut());
+	shoot.whenPressed(new ShootBall());
 
+}
+}

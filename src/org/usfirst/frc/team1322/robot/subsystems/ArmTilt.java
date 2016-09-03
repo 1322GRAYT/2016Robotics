@@ -12,7 +12,8 @@ public class ArmTilt extends Subsystem {
     
     public ArmTilt(){
     	armTilt = new CANTalon(RobotMap.CAN_A_Pivot);
-  //  	LiveWindow.addActuator("Arm Tilt", "Arm Tilt Motor", armTilt);
+    	armTilt.enableBrakeMode(true);
+    	//  	LiveWindow.addActuator("Arm Tilt", "Arm Tilt Motor", armTilt);
     }
     
 	public void armPower(double power){

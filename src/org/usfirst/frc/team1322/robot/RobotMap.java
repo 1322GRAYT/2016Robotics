@@ -20,8 +20,11 @@ public class RobotMap {
 	public static final int PWM_Ball_Intake = 0;
 	
 	//Digital Inputs
+	public static final int DIG_Ball_Sensor = 1;
 	
 	//Analog Inputs
+	
+	
 	//None
 	
 	// USB Controllers

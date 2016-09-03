@@ -15,11 +15,14 @@ public class WinchLift extends Subsystem {
 	public WinchLift(){
 		winchHookL = new CANTalon(RobotMap.CAN_Lift_WinchL);
 		winchHookR = new CANTalon(RobotMap.CAN_Lift_WinchR);
-		winchHookR.changeControlMode(TalonControlMode.Follower);
+		//winchHookR.changeControlMode(TalonControlMode.Follower);
+		winchHookL.enableBrakeMode(true);
+		winchHookR.enableBrakeMode(true);
 	}
 	
 	public void LiftPower(double power){
 		winchHookL.set(power);
+		winchHookR.set(power);
 	}
 	
     public void initDefaultCommand() {
