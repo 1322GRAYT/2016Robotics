@@ -11,12 +11,13 @@ public class RobotMap {
 	public static final int CAN_D_RL = 2;
 	public static final int CAN_D_FR = 3;
 	public static final int CAN_D_RR = 4;
+	public static final int CAN_Lift_WinchR = 5;
+	public static final int CAN_Lift_WinchL = 6;
+	public static final int CAN_Ball_Holder = 7;
+	public static final int CAN_A_Pivot = 8;
 	
 	//PWMs
-	public static final int PWM_A_Pivot = 2;
-	public static final int PWM_Ball_Holder = 3;
-	public static final int PWM_Ball_Intake = 4;
-	public static final int PWM_Lift_Winch = 5;
+	public static final int PWM_Ball_Intake = 0;
 	
 	//Digital Inputs
 	
