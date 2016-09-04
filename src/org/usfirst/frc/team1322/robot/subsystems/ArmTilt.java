@@ -19,6 +19,11 @@ public class ArmTilt extends Subsystem {
 	public void armPower(double power){
 		armTilt.set(power);
 	}
+	
+	public void override(double power){
+    	//System.out.println(GetArmPosition());
+    	armTilt.set(power*3/4);
+    }
 
     public void initDefaultCommand() {
     	setDefaultCommand(new ArmTiltTeleop());
